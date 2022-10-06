@@ -1,0 +1,83 @@
+PS C:\Users\Aleks> wsl --set-default-version 2
+For information on key differences with WSL 2 please visit https://aka.ms/wsl2
+The operation completed successfully.
+PS C:\Users\Aleks> docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+b8dfde127a29: Pull complete
+Digest: sha256:7d91b69e04a9029b99f3585aaaccae2baa80bcf318f4a5d2165a9898cd2dc0a1
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+PS C:\Users\Aleks> docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
+4e9031c3f7f6   hello-world   "/hello"   28 seconds ago   Exited (0) 28 seconds ago             quirky_bouman
+PS C:\Users\Aleks> docker rm quirky_bouman
+quirky_bouman
+PS C:\Users\Aleks> docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\Users\Aleks> docker run --rm hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+PS C:\Users\Aleks> docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\Users\Aleks> docker run -it ubuntu bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+35807b77a593: Pull complete
+Digest: sha256:9d6a8699fb5c9c39cf08a0871bd6219f0400981c570894cd8cbea30d3424a31f
+Status: Downloaded newer image for ubuntu:latest
+root@6ffaf65d3671:/# exit
+exit
+PS C:\Users\Aleks> docker run -dt ubuntu bash
+22d5e87de24c5f9374ebf78ebb24d5d8e1cdfbe1af41c82236216da198eeeb5f
+PS C:\Users\Aleks> docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+22d5e87de24c   ubuntu    "bash"    22 seconds ago   Up 21 seconds             pedantic_pare
+PS C:\Users\Aleks> docker rm pedantic-pare
+Error: No such container: pedantic-pare
+PS C:\Users\Aleks> docker rm pedantic_pare
+Error response from daemon: You cannot remove a running container 22d5e87de24c5f9374ebf78ebb24d5d8e1cdfbe1af41c82236216da198eeeb5f. Stop the container before attempting removal or force remove
+PS C:\Users\Aleks> docker rm -f pedantic_pare
+pedantic_pare
+PS C:\Users\Aleks>
